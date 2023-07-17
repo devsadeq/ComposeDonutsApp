@@ -5,4 +5,6 @@
     <string name="get_started">Get Started</string>
     <string name="let_s_gonuts">Let’s Gonuts!</string>
     <string name="order_your_favourite_donuts_from_here">Order your favourite donuts from here</string>
+    <string name="today_offers">Today Offers</string>
+    <string name="donuts">Donuts</string>
 </resources>

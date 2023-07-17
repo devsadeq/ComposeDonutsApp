@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
 
     private fun getDonuts() {
         _state.update {
-            it.copy(donuts = DataSource.getDonuts())
+            it.copy(donuts = DataSource.getDonuts().filter { donut -> !donut.isOffer })
         }
     }
 }
