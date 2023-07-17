@@ -20,6 +20,8 @@ fun RoundedButton(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
+    containerColor: Color = Color(0xFFFFFFFF),
+    textColor: Color = Color(0xFF000000),
 ) {
     Button(
         onClick = onClick,
@@ -27,16 +29,14 @@ fun RoundedButton(
             .fillMaxWidth()
             .height(67.dp)
             .clip(RoundedCornerShape(size = 50.dp)),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFFFFFFFF),
-        )
+        colors = ButtonDefaults.buttonColors(containerColor)
     ) {
         Text(
             text = text,
             style = TextStyle(
                 fontSize = 20.sp,
                 fontWeight = FontWeight(600),
-                color = Color(0xFF000000),
+                color = textColor,
             )
         )
     }

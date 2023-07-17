@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.devsadeq.composedonutsapp.ui.screen.DetailsScreen
 import com.devsadeq.composedonutsapp.ui.screen.HomeScreen
 import com.devsadeq.composedonutsapp.ui.screen.OnBoardingScreen
 import com.devsadeq.composedonutsapp.ui.theme.ComposeDonutsAppTheme
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    DetailsScreen()
                 }
             }
         }
