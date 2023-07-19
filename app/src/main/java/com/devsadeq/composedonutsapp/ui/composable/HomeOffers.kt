@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.devsadeq.composedonutsapp.ui.viewmodel.HomeUiState
+import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
 
 @Composable
 fun HomeOffers(items: List<HomeUiState.Donut>) {

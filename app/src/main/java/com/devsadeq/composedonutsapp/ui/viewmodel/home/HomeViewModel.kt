@@ -1,4 +1,4 @@
-package com.devsadeq.composedonutsapp.ui.viewmodel
+package com.devsadeq.composedonutsapp.ui.viewmodel.home
 
 import androidx.lifecycle.ViewModel
 import com.devsadeq.composedonutsapp.ui.DataSource

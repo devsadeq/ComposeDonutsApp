@@ -1,4 +1,4 @@
-package com.devsadeq.composedonutsapp.ui.viewmodel
+package com.devsadeq.composedonutsapp.ui.viewmodel.home
 
 data class HomeUiState(
     val todayOffers: List<Donut> = emptyList(),

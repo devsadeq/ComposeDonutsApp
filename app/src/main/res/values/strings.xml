@@ -8,4 +8,6 @@
     <string name="today_offers">Today Offers</string>
     <string name="donuts">Donuts</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="about_gonut">About Gonut</string>
+    <string name="quantity">Quantity</string>
 </resources>

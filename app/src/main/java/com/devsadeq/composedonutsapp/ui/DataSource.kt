@@ -1,7 +1,7 @@
 package com.devsadeq.composedonutsapp.ui
 
 import com.devsadeq.composedonutsapp.R
-import com.devsadeq.composedonutsapp.ui.viewmodel.HomeUiState
+import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
 
 object DataSource {
 

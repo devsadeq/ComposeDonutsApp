@@ -16,8 +16,8 @@ import com.devsadeq.composedonutsapp.ui.composable.DonutsList
 import com.devsadeq.composedonutsapp.ui.composable.HomeHeader
 import com.devsadeq.composedonutsapp.ui.composable.HomeOffers
 import com.devsadeq.composedonutsapp.ui.composable.SectionTitle
-import com.devsadeq.composedonutsapp.ui.viewmodel.HomeUiState
-import com.devsadeq.composedonutsapp.ui.viewmodel.HomeViewModel
+import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
+import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeViewModel
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
