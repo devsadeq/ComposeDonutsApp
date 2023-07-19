@@ -2,6 +2,7 @@ package com.devsadeq.composedonutsapp.ui.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,9 +44,11 @@ import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun OfferItem(
-    item: HomeUiState.Donut
+    item: HomeUiState.Donut,
+    onItemClicked: (Int) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    Box(modifier = Modifier) {
+    Box(modifier = modifier) {
         Card(
             modifier = Modifier
                 .padding(end = 47.dp)
@@ -54,7 +57,8 @@ fun OfferItem(
                     spotColor = Color(0x1A000000),
                     ambientColor = Color(0x1A000000)
                 )
-                .clip(RoundedCornerShape(size = 20.dp)),
+                .clip(RoundedCornerShape(size = 20.dp))
+                .clickable { onItemClicked(item.id) },
             colors = CardDefaults.cardColors(
                 containerColor = if (item.id % 2 != 0) Color(0xFFD7E4F6) else Color(0xFFFFC7D0),
             ),

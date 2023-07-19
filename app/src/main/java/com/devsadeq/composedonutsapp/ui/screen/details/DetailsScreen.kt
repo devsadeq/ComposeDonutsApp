@@ -1,4 +1,4 @@
-package com.devsadeq.composedonutsapp.ui.screen
+package com.devsadeq.composedonutsapp.ui.screen.details
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,35 +20,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.devsadeq.composedonutsapp.R
+import androidx.navigation.NavController
 import com.devsadeq.composedonutsapp.ui.composable.DetailsBottomSheet
 import com.devsadeq.composedonutsapp.ui.composable.RoundedIconButton
 import com.devsadeq.composedonutsapp.ui.viewmodel.details.DetailsUiState
 import com.devsadeq.composedonutsapp.ui.viewmodel.details.DetailsViewModel
 
 @Composable
-fun DetailsScreen(viewModel: DetailsViewModel = hiltViewModel()) {
+fun DetailsScreen(
+    navController: NavController,
+    viewModel: DetailsViewModel = hiltViewModel()
+) {
     val state by viewModel.state.collectAsState()
     DetailsScreenContent(
         state,
-        viewModel::onQuantityChanged
+        viewModel::onQuantityChanged,
+        navController::popBackStack
     )
-}
-
-@Preview
-@Composable
-fun DetailsScreenPreview() {
-    DetailsScreen()
 }
 
 @Composable
 fun DetailsScreenContent(
     state: DetailsUiState,
     onQuantityChange: (Int) -> Unit,
+    onBackClick: () -> Unit,
 ) {
     Box(
         modifier = Modifier
@@ -56,7 +54,7 @@ fun DetailsScreenContent(
             .background(Color(0xFFFED8DF))
     ) {
         IconButton(
-            onClick = {},
+            onClick = onBackClick,
             modifier = Modifier.padding(16.dp)
         ) {
             Icon(
@@ -65,7 +63,7 @@ fun DetailsScreenContent(
             )
         }
         Image(
-            painter = painterResource(R.drawable.strawberry_wheel), contentDescription = null,
+            painter = painterResource(state.donut!!.image), contentDescription = null,
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .fillMaxWidth()

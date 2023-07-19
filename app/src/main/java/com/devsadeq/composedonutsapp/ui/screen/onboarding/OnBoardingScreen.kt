@@ -1,4 +1,4 @@
-package com.devsadeq.composedonutsapp.ui.screen
+package com.devsadeq.composedonutsapp.ui.screen.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,18 +12,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.devsadeq.composedonutsapp.R
 import com.devsadeq.composedonutsapp.ui.composable.OnBoardingFooter
+import com.devsadeq.composedonutsapp.ui.screen.home.navigateHome
 
 @Composable
-fun OnBoardingScreen() {
-    OnBoardingScreenContent()
+fun OnBoardingScreen(
+    navController: NavController,
+) {
+    OnBoardingScreenContent(
+        navController::navigateHome
+    )
 }
 
 @Composable
-fun OnBoardingScreenContent() {
+fun OnBoardingScreenContent(
+    onGetStartedClicked: () -> Unit,
+) {
     Box(
         Modifier
             .fillMaxSize()
@@ -37,12 +44,6 @@ fun OnBoardingScreenContent() {
                 .align(Alignment.TopCenter),
             contentScale = ContentScale.Crop
         )
-        OnBoardingFooter(Modifier.align(Alignment.BottomCenter))
+        OnBoardingFooter(Modifier.align(Alignment.BottomCenter), onGetStartedClicked)
     }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun OnBoardingScreenPreview() {
-    OnBoardingScreen()
 }

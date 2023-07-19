@@ -19,6 +19,7 @@ import com.devsadeq.composedonutsapp.R
 @Composable
 fun OnBoardingFooter(
     modifier: Modifier = Modifier,
+    onGetStartedClicked: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -44,6 +45,6 @@ fun OnBoardingFooter(
                 color = Color(0xFFFF9494),
             )
         )
-        RoundedButton(onClick = {}, text = stringResource(R.string.get_started))
+        RoundedButton(onClick = onGetStartedClicked, text = stringResource(R.string.get_started))
     }
 }

@@ -9,13 +9,16 @@ import androidx.compose.ui.unit.dp
 import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
 
 @Composable
-fun HomeOffers(items: List<HomeUiState.Donut>) {
+fun HomeOffers(
+    items: List<HomeUiState.Donut>,
+    onItemClicked: (Int) -> Unit
+) {
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(start = 40.dp, top = 25.dp , bottom = 46.dp)
+        contentPadding = PaddingValues(start = 40.dp, top = 25.dp, bottom = 46.dp)
     ) {
         items(items.size) {
-            OfferItem(items[it])
+            OfferItem(items[it], onItemClicked = onItemClicked)
         }
     }
 }
