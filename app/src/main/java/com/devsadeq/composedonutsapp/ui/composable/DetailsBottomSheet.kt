@@ -109,7 +109,7 @@ fun DetailsBottomSheet(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "£${donut.price}",
+                    text = "£${donut.price * quantity}",
                     modifier = Modifier.padding(end = 26.dp),
                     style = TextStyle(
                         fontSize = 30.sp,

@@ -17,7 +17,8 @@ fun SectionTitle(title: String, modifier: Modifier = Modifier) {
         text = title,
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 40.dp),
+            .padding(horizontal = 16.dp)
+            .padding(top = 16.dp),
         style = TextStyle(
             fontSize = 20.sp,
             fontWeight = FontWeight(600),

@@ -2,7 +2,9 @@ package com.devsadeq.composedonutsapp.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -11,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.devsadeq.composedonutsapp.R
@@ -31,14 +34,16 @@ fun HomeScreen(
 
     HomeScreenContent(
         state,
-        navController::navigateDetails
+        navController::navigateDetails,
+        viewModel::onFavoriteClicked
     )
 }
 
 @Composable
 fun HomeScreenContent(
     state: HomeUiState = HomeUiState(),
-    onOfferClick: (Int) -> Unit,
+    onItemClicked: (Int) -> Unit,
+    onFavoriteClicked: (Int) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -48,8 +53,11 @@ fun HomeScreenContent(
     ) {
         HomeHeader()
         SectionTitle(stringResource(R.string.today_offers))
-        HomeOffers(state.todayOffers, onOfferClick)
+        HomeOffers(state.todayOffers, onItemClicked, onFavoriteClicked)
         SectionTitle(stringResource(R.string.donuts))
-        DonutsList(items = state.donuts)
+        DonutsList(items = state.donuts, onItemClicked)
+        SectionTitle(stringResource(R.string.today_s_specials_donuts))
+        DonutsList(items = state.donuts, onItemClicked)
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }

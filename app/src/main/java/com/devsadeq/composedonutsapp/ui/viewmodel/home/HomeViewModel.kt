@@ -31,4 +31,16 @@ class HomeViewModel @Inject constructor() : ViewModel() {
             it.copy(donuts = DataSource.getDonuts().filter { donut -> !donut.isOffer })
         }
     }
+
+    fun onFavoriteClicked(id: Int) {
+        _state.update {
+            it.copy(todayOffers = it.todayOffers.map { donut ->
+                if (donut.id == id) {
+                    donut.copy(isFavorite = !donut.isFavorite)
+                } else {
+                    donut
+                }
+            })
+        }
+    }
 }

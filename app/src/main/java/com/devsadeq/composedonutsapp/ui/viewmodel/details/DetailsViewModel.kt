@@ -34,4 +34,12 @@ class DetailsViewModel @Inject constructor(
             it.copy(quantity = quantity)
         }
     }
+
+    fun onFavoriteClicked(id: Int) {
+        state.value.donut.let {
+            _state.update {
+                it.copy(donut = it.donut!!.copy(isFavorite = !it.donut.isFavorite))
+            }
+        }
+    }
 }

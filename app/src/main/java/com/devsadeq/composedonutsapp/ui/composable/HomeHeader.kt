@@ -25,7 +25,7 @@ fun HomeHeader() {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 40.dp, vertical = 50.dp),
+            .padding(horizontal = 16.dp, vertical = 24.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -50,6 +50,6 @@ fun HomeHeader() {
                 )
             )
         }
-        RoundedIconButton(icon = Icons.Filled.Search)
+        RoundedIconButton(icon = Icons.Filled.Search, hasElevation = false)
     }
 }

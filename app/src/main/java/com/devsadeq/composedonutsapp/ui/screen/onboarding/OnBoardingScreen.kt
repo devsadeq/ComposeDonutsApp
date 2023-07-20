@@ -40,7 +40,7 @@ fun OnBoardingScreenContent(
             painter = painterResource(R.drawable.donuts), contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(450.dp)
+                .height(600.dp)
                 .align(Alignment.TopCenter),
             contentScale = ContentScale.Crop
         )

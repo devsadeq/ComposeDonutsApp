@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -38,7 +39,8 @@ fun DetailsScreen(
     DetailsScreenContent(
         state,
         viewModel::onQuantityChanged,
-        navController::popBackStack
+        navController::popBackStack,
+        viewModel::onFavoriteClicked
     )
 }
 
@@ -47,6 +49,7 @@ fun DetailsScreenContent(
     state: DetailsUiState,
     onQuantityChange: (Int) -> Unit,
     onBackClick: () -> Unit,
+    onFavoriteClick: (Int) -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -67,8 +70,8 @@ fun DetailsScreenContent(
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .fillMaxWidth()
-                .height(350.dp)
-                .padding(vertical = 24.dp)
+                .height(450.dp)
+                .padding(top = 60.dp)
         )
         DetailsBottomSheet(
             donut = state.donut ?: return@Box,
@@ -80,10 +83,11 @@ fun DetailsScreenContent(
             modifier = Modifier
                 .zIndex(2f)
                 .align(Alignment.CenterEnd)
-                .offset(x = (-33).dp, y = (-90).dp),
-            icon = Icons.Filled.FavoriteBorder,
+                .offset(x = (-33).dp, y = (15).dp),
+            icon = if (state.donut.isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
             backgroundColor = Color.White,
             iconColor = Color(0xFFFF7074),
+            onClick = { onFavoriteClick(state.donut.id) }
         )
     }
 }

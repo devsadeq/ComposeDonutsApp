@@ -1,13 +1,14 @@
 package com.devsadeq.composedonutsapp.ui.composable
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -24,19 +25,19 @@ fun RoundedIconButton(
     onClick: () -> Unit = {},
     backgroundColor: Color = Color(0xFFFED8DF),
     iconColor: Color = Color(0xFFFF7074),
+    hasElevation: Boolean = true
 ) {
-    IconButton(
+    Button(
         onClick = onClick,
         modifier = modifier
-            .size(45.dp)
+            .size(56.dp)
             .shadow(
-                elevation = 40.dp,
-                spotColor = Color(0x1A000000),
-                ambientColor = Color(0x1A000000)
+                elevation = if (hasElevation) 45.dp else 0.dp,
+                spotColor = Color(0x8F030000),
             )
-            .background(backgroundColor, shape = RoundedCornerShape(size = 15.dp)),
-
-        ) {
+            .clip(RoundedCornerShape(size = 15.dp)),
+        colors = ButtonDefaults.buttonColors(backgroundColor),
+    ) {
         if (icon != null) Icon(
             imageVector = icon,
             contentDescription = null,

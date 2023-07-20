@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -27,11 +28,18 @@ import androidx.compose.ui.unit.sp
 import com.devsadeq.composedonutsapp.ui.viewmodel.home.HomeUiState
 
 @Composable
-fun DonutItem(donut: HomeUiState.Donut) {
+fun DonutItem(
+    donut: HomeUiState.Donut,
+    onItemClicked: (Int) -> Unit,
+) {
     Box {
         Card(
             modifier = Modifier
                 .wrapContentSize()
+                .shadow(
+                    elevation = 60.dp,
+                    spotColor = Color(0xD030000),
+                )
                 .padding(end = 20.dp)
                 .clip(
                     RoundedCornerShape(
@@ -41,9 +49,8 @@ fun DonutItem(donut: HomeUiState.Donut) {
                         bottomStart = 10.dp
                     )
                 )
-                .clickable { },
+                .clickable { onItemClicked(donut.id) },
             colors = CardDefaults.cardColors(Color.White),
-            elevation = CardDefaults.cardElevation(defaultElevation = 150.dp),
         ) {
             Column(
                 modifier = Modifier

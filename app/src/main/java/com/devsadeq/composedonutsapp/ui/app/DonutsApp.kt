@@ -20,7 +20,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.devsadeq.composedonutsapp.ui.navigation.DonutsNavGraph
 import com.devsadeq.composedonutsapp.ui.navigation.Screen
-import com.devsadeq.composedonutsapp.ui.screen.details.DETAILS_ROUTE
 import com.devsadeq.composedonutsapp.ui.screen.onboarding.ON_BOARDING_ROUTE
 
 @Composable
@@ -48,7 +47,7 @@ fun DonutsBottomBar(navController: NavHostController) {
 
     if (currentRoute?.destination?.route != "details/{id}" && currentRoute?.destination?.route != ON_BOARDING_ROUTE)
         BottomNavigation(
-            modifier = Modifier.height(80.dp),
+            modifier = Modifier.height(72.dp),
             backgroundColor = Color.White,
             elevation = 0.dp,
         ) {
